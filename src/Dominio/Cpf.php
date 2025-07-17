@@ -1,6 +1,6 @@
 <?
 
-namespace Alura\Arquitetura;
+namespace Alura\Arquitetura\Dominio;
 
 class Cpf
 {
