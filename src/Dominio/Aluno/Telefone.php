@@ -13,9 +13,9 @@ class Telefone
         $this->setNumero($numero);
     }
 
-    private function setDDD(string $ddd): void
+    private function setDdd(string $ddd): void
     {
-        if(preg_match('/\d{2}/', $ddd) !== 1){
+        if (preg_match('/\d{2}/', $ddd) !== 1) {
             throw new \InvalidArgumentException('DDD inválido');
         }
 
@@ -24,14 +24,25 @@ class Telefone
 
     private function setNumero(string $numero): void
     {
-        if(preg_match('/\d{8,9}/', $numero) !== 1){
-            throw new \InvalidArgumentException('Número de telefone inváldo');
+        if (preg_match('/\d{8,9}/', $numero) !== 1) {
+            throw new \InvalidArgumentException('Número de telefone inválido');
         }
+
         $this->numero = $numero;
     }
 
     public function __toString(): string
     {
-        return "({$this->ddd} {$this->numero})";
+        return "({$this->ddd}) {$this->numero}";
+    }
+
+    public function ddd(): string
+    {
+        return $this->ddd;
+    }
+
+    public function numero(): string
+    {
+        return $this->numero;
     }
 }
